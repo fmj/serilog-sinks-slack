@@ -37,6 +37,8 @@ namespace Serilog.Sinks.Slack
         /// </summary>
         protected readonly IFormatProvider FormatProvider;
 
+        protected readonly string ProxyUri;
+
         /// <summary>
         /// The Slack bot name.
         /// </summary>
@@ -136,7 +138,11 @@ namespace Serilog.Sinks.Slack
                 // FormatProvider overrides default behaviour
                 var message = (FormatProvider != null) ? logEvent.RenderMessage(FormatProvider) : RenderMessageImplementation(logEvent);
 
-                if (item.UsesWebhooks)
+                if (item.UsesWebhooks && !string.IsNullOrEmpty(ProxyUri))
+                {
+                    SendMessageWithWebHooks(item.WebHookUri, message, ProxyUri);
+                }
+                else if (item.UsesWebhooks)
                 {
                     SendMessageWithWebHooks(item.WebHookUri, message);
                 }
@@ -176,6 +182,20 @@ namespace Serilog.Sinks.Slack
             if (message != null)
             {
                 var sendMessageResult = SlackClient.SlackClient.SendMessageViaWebhooks(webhookUri, message);
+                if (sendMessageResult != null)
+                {
+                    SelfLog.WriteLine("Message sent to webhook '{0}': '{1}'.", webhookUri, sendMessageResult);
+                }
+            }
+        }
+
+        protected void SendMessageWithWebHooks(string webhookUri, string message,string proxy)
+        {
+            SelfLog.WriteLine("Trying to send message to webhook '{0}': '{1}'.", webhookUri, message);
+
+            if (message != null)
+            {
+                var sendMessageResult = SlackClient.SlackClient.SendMessageViaWebhooksViaProxy(webhookUri, message,proxy);
                 if (sendMessageResult != null)
                 {
                     SelfLog.WriteLine("Message sent to webhook '{0}': '{1}'.", webhookUri, sendMessageResult);

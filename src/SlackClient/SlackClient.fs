@@ -16,7 +16,7 @@ module SlackClient =
         
     let public SendMessageViaWebhooks (webhookUri:string, message:string) = Http.RequestString(webhookUri, headers = [ ContentType HttpContentTypes.Json ], body = TextRequest message)
 
-    let public SendMessageViaWebhooks2 (webhookUri:string, message:string, proxy:string) = Http.Request(webhookUri, 
+    let public SendMessageViaWebhooksViaProxy (webhookUri:string, message:string, proxy:string) = Http.Request(webhookUri, 
                                                                                                    httpMethod = "POST", 
                                                                                                    headers = [ ContentType HttpContentTypes.Json ],
                                                                                                    body = TextRequest message,

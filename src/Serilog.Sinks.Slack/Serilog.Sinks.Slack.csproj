@@ -70,6 +70,12 @@
       <HintPath>..\..\packages\System.ValueTuple.4.4.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SlackClient\SlackClient.fsproj">
+      <Project>{f051c27e-486b-4746-b301-1e8922641524}</Project>
+      <Name>SlackClient</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\packages\OctoPack.3.6.1\build\OctoPack.targets" Condition="Exists('..\..\packages\OctoPack.3.6.1\build\OctoPack.targets')" />
 </Project>
