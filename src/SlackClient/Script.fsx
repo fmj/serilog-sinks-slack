@@ -20,7 +20,8 @@ let channelList = ChannelListResponse.Load(channelListRequest apiToken)
 let botChannelId = channelList.Channels.[0].Id
 *)
 let botChannelId = "XXXXXXXXXX"
-let webhookUri = "https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX" 
+let webhookUri = "https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX"
+ 
 let testMessage = "`This%20is%20a%20test%20message!`"
 let testMessage1 = "`This is a test message!`"
 let testMessage2 = "This is a test message!"

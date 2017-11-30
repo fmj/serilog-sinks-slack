@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F49CF91C-EB63-4CD9-A128-FB1A74EF5A12}"
 EndProject
@@ -9,19 +9,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog.Sinks.Slack.TestCon
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog.Sinks.Slack", "src\Serilog.Sinks.Slack\Serilog.Sinks.Slack.csproj", "{0817EE54-F12B-483F-AC24-FC4916490239}"
 EndProject
-Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "SlackClient", "src\SlackClient\SlackClient.fsproj", "{F051C27E-486B-4746-B301-1E8922641524}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "SlackClient", "src\SlackClient\SlackClient.fsproj", "{F051C27E-486B-4746-B301-1E8922641524}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6C4ACAB9-B2C4-4C71-A1D2-06613CD029D2}"
 	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
 		appveyor.yml = appveyor.yml
-		README.md = README.md
+		global.json = global.json
 		LICENSE = LICENSE
+		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog.Sinks.Slack.Core", "src\Serilog.Sinks.Slack.Core\Serilog.Sinks.Slack.Core.csproj", "{4C7F541B-3CF2-41C3-A93E-C269B5BFA746}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Serilog.Sinks.Slack.Core", "src\Serilog.Sinks.Slack.Core\Serilog.Sinks.Slack.Core.csproj", "{4C7F541B-3CF2-41C3-A93E-C269B5BFA746}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog.Sinks.Slack.Core.TestConsoleApp", "src\Serilog.Sinks.Slack.Core.TestConsoleApp\Serilog.Sinks.Slack.Core.TestConsoleApp.csproj", "{7225ACC4-E36B-4E6A-A7A1-2B81FB3E6741}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Serilog.Sinks.Slack.Core.TestConsoleApp", "src\Serilog.Sinks.Slack.Core.TestConsoleApp\Serilog.Sinks.Slack.Core.TestConsoleApp.csproj", "{7225ACC4-E36B-4E6A-A7A1-2B81FB3E6741}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,6 +56,9 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{8E6AAAC2-BC6F-44F7-B693-9966CB7763F5} = {F49CF91C-EB63-4CD9-A128-FB1A74EF5A12}
 		{7225ACC4-E36B-4E6A-A7A1-2B81FB3E6741} = {F49CF91C-EB63-4CD9-A128-FB1A74EF5A12}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {98443441-710F-459A-9604-C23799A1F186}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
