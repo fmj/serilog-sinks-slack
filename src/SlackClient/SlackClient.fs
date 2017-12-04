@@ -16,10 +16,11 @@ module SlackClient =
         
     let public SendMessageViaWebhooks (webhookUri:string, message:string) = Http.RequestString(webhookUri, headers = [ ContentType HttpContentTypes.Json ], body = TextRequest message)
 
-    let public SendMessageViaWebhooksViaProxy (webhookUri:string, message:string, proxy:string) = Http.Request(webhookUri, 
+    let public SendMessageViaWebhooksViaProxy (webhookUri:string, message:string, proxy:string, auth:string) = Http.Request(webhookUri, 
                                                                                                    httpMethod = "POST", 
-                                                                                                   headers = [ ContentType HttpContentTypes.Json ],
+                                                                                                   headers = [ ContentType HttpContentTypes.Json; ProxyAuthorization auth], 
                                                                                                    body = TextRequest message,
                                                                                                    customizeHttpRequest = fun req ->
-                                                                                                       req.Proxy <- WebProxy(proxy,true);req)
-    //String(webhookUri, headers = [ ContentType HttpContentTypes.Json ], body = TextRequest message)
+                                                                                                       req.Proxy <- WebProxy(proxy,true)
+                                                                                                       ;req)
+    

@@ -6,10 +6,13 @@ namespace Serilog.Sinks.Slack.TestConsoleApp
     {
         static void Main(string[] args)
         {
+            Serilog.Debugging.SelfLog.Enable(msg => Console.WriteLine(msg));
+            Serilog.Sinks.Slack.SlackSink.ProxyUri = "url:8080";
+            Serilog.Sinks.Slack.SlackSink.ProxyAuthString = "Negotiate  base64encoded user:pass";
             var log = new LoggerConfiguration()
                 .MinimumLevel.Verbose()
                 //.WriteTo.Slack("C0W6DD7LZ", "xoxp-13773446566-13774642576-72300718082-1d35369b22", LevelAlias.Maximum)
-                .WriteTo.Slack("https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX"
+                .WriteTo.Slack("Slack URL"
                 //,(LogEvent l) => l.RenderMessage()
                 )
                 .CreateLogger();
@@ -27,6 +30,7 @@ namespace Serilog.Sinks.Slack.TestConsoleApp
             {
                 log.Fatal(exception, "Exception catched at Main.");
             }
+            Console.ReadLine();
         }
     }
 }
